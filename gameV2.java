@@ -39,7 +39,7 @@ public class Main
 		ActionFigur player = getCharacter(character);
 		ActionFigur enemy = getEnemy(character);
 		
-		Weapon[] weapon = new Weapon[4];
+		Weapon[] weapon = new Weapon[16];
 		loadWeapons(weapon);
 		
 		clrscr();
@@ -47,7 +47,7 @@ public class Main
 		Weapon playerWeapon = getWeapon(weapon);
 		Weapon enemyWeapon = getEnemyWeapon(weapon);
 		
-		Armor[] armor = new Armor[4];
+		Armor[] armor = new Armor[13];
 		loadArmor(armor);
 		
 		clrscr();
@@ -58,10 +58,6 @@ public class Main
 		Level[] stage 	= new Level[3];
 		loadStage(stage);
 		Level levelStage = getStage(stage);
-		
-		
-		
-	
 		
 		
 		clrscr();
@@ -117,6 +113,15 @@ public class Main
 		armor[1] = new Armor(2, "leather harnish", 6, 4);
 		armor[2] = new Armor(3, "metal harnish", 6, 5);
 		armor[3] = new Armor(4, "titan harnish", 11, 6);
+		armor[4] = new Armor(5, "alu harnish", 11, 6);
+		armor[5] = new Armor(6, "orc harnish", 11, 6);
+		armor[6] = new Armor(7, "elf harnish", 11, 6);
+		armor[7] = new Armor(8, "plasma harnish", 11, 6);
+		armor[8] = new Armor(9, "wood harnish", 11, 6);
+		armor[9] = new Armor(10, "gold harnish", 11, 6);
+		armor[10] = new Armor(11, "silver harnish", 11, 6);
+		armor[11] = new Armor(12, "giga harnish", 11, 6);
+		armor[12] = new Armor(13, "ultra harnish", 11, 6);
 	}
 	
 	public static void loadWeapons(Weapon[] weapon)
@@ -125,6 +130,18 @@ public class Main
 		weapon[1] = new Weapon(2, "sword", 6, 3);
 		weapon[2] = new Weapon(3, "plasmagun", 14, 7);
 		weapon[3] = new Weapon(4, "handgun", 8, 6);
+		weapon[4] = new Weapon(5, "rocketlouncher", 3, 2);
+		weapon[5] = new Weapon(6, "lasergun", 6, 3);
+		weapon[6] = new Weapon(7, "fusiongun", 14, 7);
+		weapon[7] = new Weapon(8, "genkidama", 8, 6);
+		weapon[8] = new Weapon(9, "blaster", 3, 2);
+		weapon[9] = new Weapon(10, "laserblaster", 6, 3);
+		weapon[10] = new Weapon(11, "ultrablaster", 14, 7);
+		weapon[11] = new Weapon(12, "stinger", 8, 6);
+		weapon[12] = new Weapon(13, "faser", 3, 2);
+		weapon[13] = new Weapon(14, "lasersword", 6, 3);
+		weapon[14] = new Weapon(15, "megawumme", 14, 7);
+		weapon[15] = new Weapon(16, "supralouncher", 8, 6);
 	}
 	
 	public static void loadCharacters(ActionFigur[] character)
@@ -298,7 +315,7 @@ public class Main
 		
 		Random rand = new Random();
 		
-		int enemyWeaponNumber = rand.nextInt(4);
+		int enemyWeaponNumber = rand.nextInt(16);
 		
 		enemyWeapon = weapon[enemyWeaponNumber];
 	
@@ -310,7 +327,7 @@ public class Main
 		
 		Random rand = new Random();
 		
-		int enemyArmorNumber = rand.nextInt(3);
+		int enemyArmorNumber = rand.nextInt(13);
 		
 		enemyArmor = armor[enemyArmorNumber];
 	
@@ -344,7 +361,7 @@ public class Main
 	public static Weapon getWeapon(Weapon[] weapon)
     {
 		int j = 0;
-		System.out.println("ID\tname\tspecies\tattack\tdefense");
+		System.out.println("ID\tname\tattack");
         System.out.println("════════════════════════════════════════════════");
 		while (j < weapon.length)
 		{
@@ -363,7 +380,7 @@ public class Main
 	public static Armor getArmor(Armor[] armor)
     {
 		int k = 0;
-		System.out.println("ID\tname\tspecies\tattack\tdefense");
+		System.out.println("ID\tname\tdefense");
         System.out.println("════════════════════════════════════════════════");
 		while (k < armor.length)
 		{
