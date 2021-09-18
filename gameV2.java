@@ -61,10 +61,7 @@ public class Main
 		
 		
 		
-		Weather[] weather = new Weather[3];
-		loadWeather(weather);
-		
-		Weather levelWeather = getWeather(weather);		
+	
 		
 		
 		clrscr();
@@ -90,7 +87,7 @@ public class Main
 		clrscr();
 			
 		
-		if (fight(player, enemy, playerWeapon, enemyWeapon, playerArmor, enemyArmor, levelStage, levelWeather) != player) 
+		if (fight(player, enemy, playerWeapon, enemyWeapon, playerArmor, enemyArmor, levelStage) != player) 
 			GAMEOVER();
 		else
 			GAMEWIN();
@@ -151,7 +148,7 @@ public class Main
 		character[16] 	= new ActionFigur(17, "christian", "pirataaa", 4, 6, 0); 
 	}
  
-    public static ActionFigur fight(ActionFigur player, ActionFigur enemy, Weapon playerWeapon, Weapon enemyWeapon, Armor playerArmor, Armor enemyArmor, Level levelStage, Weather levelWeather)
+    public static ActionFigur fight(ActionFigur player, ActionFigur enemy, Weapon playerWeapon, Weapon enemyWeapon, Armor playerArmor, Armor enemyArmor, Level levelStage)
     {
 		int round = 0;
 		ActionFigur winner = player;
@@ -163,25 +160,62 @@ public class Main
 		
 		while (round < RoundEND)
 		{
+			Weather[] weather = new Weather[3];
+			loadWeather(weather);
+		
+			Weather levelWeather = getWeather(weather);		
 			System.out.println("════════════════════════════════════════════════");
 			System.out.println(" FIGHT\tRound:" + round);
 			System.out.println("════════════════════════════════════════════════");
 			System.out.println(" world:"+ levelStage.getLevelName() + "\t\tweather:"+ levelWeather.getWeatherName());
 			System.out.println("════════════════════════════════════════════════");
 			
-			
-		
-			
-			if (animation == 0)
+	
+			 
+			if (levelWeather.getWeatherName() == "rain")
 			{
-				snowForrestA();
-				animation++;
+				if (animation == 0)
+				{
+					rainForrestA();
+					animation++;
+				}
+				else if (animation == 1)
+				{
+					rainForrestB();
+					animation--;
+				}
 			}
-			else if (animation == 1)
+			
+			if (levelWeather.getWeatherName() == "snow")
 			{
-				snowForrestB();
-				animation--;
+				if (animation == 0)
+				{
+					snowForrestA();
+					animation++;
+				}
+				else if (animation == 1)
+				{
+					snowForrestB();
+					animation--;
+				}
 			}
+			
+			if (levelWeather.getWeatherName() == "normal")
+			{
+				if (animation == 0)
+				{
+					forrestA();
+					animation++;
+				}
+				else if (animation == 1)
+				{
+					forrestB();
+					animation--;
+				}
+			}
+			
+			
+			
 			System.out.println("════════════════════════════════════════════════");
 			System.out.println("\t " + player.getCharacterName() + " vs " + enemy.getCharacterName());
 			System.out.println("════════════════════════════════════════════════");
@@ -233,7 +267,9 @@ public class Main
 	
     public static Weather getWeather(Weather[] weather)
     {
-		levelWeather = weather[1];
+		Random rand = new Random();
+		int weatherNumber = rand.nextInt(3)+0;
+		levelWeather = weather[weatherNumber];
 	
 		return levelWeather;
     } 
