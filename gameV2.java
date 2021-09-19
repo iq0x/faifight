@@ -199,7 +199,7 @@ public class Main
 		
 		int playerMana = player.getCharacterMana();
 		int enemyMana = enemy.getCharacterMana();
-		
+		int whoIS = 0;
 		while (playerLife > 0)
 		{
 			Weather[] weather = new Weather[3];
@@ -288,6 +288,13 @@ public class Main
 			System.out.println(ANSI_BLUE +"3. Item:\t" + "no Item" + ANSI_RESET);
 			
 //--------------------- fight round player ---------------------------------
+				
+				
+				if (whoIS == 0)
+				{
+					
+					whoIS++;
+				
 
 			int chooseFight = scanner.nextInt();
 			
@@ -310,21 +317,26 @@ public class Main
 				kbhit();
 			}
 		
-			else
-			{
+	
+			
 			}
+		
 			
-//--------------------- fight round enemy ---------------------------------			
+//--------------------- fight round enemy ---------------------------------	
+			else if (whoIS == 1)
+			{
+				
+			whoIS--;
+			kbhit();
 			round++;
-			playerLife = playerLife - TOTALATTACKENEMY + attackBonus - TOTALDEFENSEPLAYER;
+			playerLife = playerLife - TOTALATTACKENEMY - attackBonus + TOTALDEFENSEPLAYER;
 			
-			clrscr();
+			
+				}
+				clrscr();
 		}
 		
-		if (playerWINS >= enemyWINS)
-			winner = player;
-		else
-			winner = enemy;
+		
 		return winner;
 	}
 	
