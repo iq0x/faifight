@@ -574,7 +574,13 @@ public class Main
 	   
 	static void titel()
 	{
-		System.out.println("\n\n\t\t\tWelcome to Fight Class\n\n");
+		System.out.println(ANSI_GREEN +"\n\n\t\t\tWelcome to Fight Class\n\n" + ANSI_RESET);
+		System.out.println(ANSI_PURPLE +"╔═══════╗   ╔═══════╗   ╔═══════╗   ╔═══════╗   ╔═══════╗   ╔═══════╗"+ANSI_RESET);
+		System.out.println(ANSI_CYAN +"║ X   X ║   ║ O   X ║   ║ X   O ║   ║ O   X ║   ║ C   O ║   ║ -   X ║"+ANSI_RESET);
+		System.out.println(ANSI_YELLOW +"╚═╗   ╔═╝   ╚═╗   ╔═╝   ╚═╗   ╔═╝   ╚═╗   ╔═╝   ╚═╗   ╔═╝   ╚═╗   ╔═╝"+ANSI_RESET);
+		System.out.println(ANSI_BLUE +"  ║+++║       ║---║       ║┕━┙║       ║┍━┑║       ║═══║       ║+++║"+ANSI_RESET);
+		System.out.println(ANSI_RED +"  ╚═══╝       ╚═══╝       ╚═══╝       ╚═══╝       ╚═══╝       ╚═══╝"+ANSI_RESET);
+
 		System.out.println(ANSI_GREEN +"█████████████████████████████████████████████████████████████████████"+ ANSI_RESET);
 		System.out.println(ANSI_BLUE +"██"+ ANSI_RESET+ANSI_RED+"    ╔═══  ║ ╔═══╗ ║   ║ ══╦══    ╔═══  ║    ╔═══╗ ╔═══  ╔═══     "+ANSI_RESET+ANSI_GREEN +"██"+ ANSI_RESET);
 		System.out.println(ANSI_BLUE +"██"+ ANSI_RESET+ANSI_RED+"    ╠═══  ║ ║  ═╗ ╠═══╣   ║      ║     ║    ╠═══╣ ╚══╗  ╚══╗     "+ANSI_RESET+ANSI_GREEN +"██"+ ANSI_RESET);
