@@ -73,6 +73,8 @@ public class Main
 		for (int tab1 = 0; tab1 <= 30; tab1++)
 			{	
 				System.out.print("═");
+				if (tab1 == 12)
+					System.out.print(" vs ");
 				try{Thread.sleep(20);}catch(InterruptedException e){System.out.println(e);}
 			}
 			
