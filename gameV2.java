@@ -169,19 +169,19 @@ public class Main
 	public static void loadCharacters(ActionFigur[] character)
 	{
 		character[0] 	= new ActionFigur(1, "helmut", "soldiera", 10, 3, 200, 50);
-        character[1]	= new ActionFigur(2, "sergio", "heilerin", 4, 5, 200, 50);
-        character[2] 	= new ActionFigur(3, "soeren", "gumbaaaa", 2, 4, 200, 50);
-		character[3] 	= new ActionFigur(4, "mikeee", "titanaaa", 9, 12, 200, 50); 
-		character[4] 	= new ActionFigur(5, "oliverA", "vikinger", 7, 9, 200, 50);
-		character[5] 	= new ActionFigur(6, "andree", "vikinger", 7, 4, 200, 50);
-		character[6] 	= new ActionFigur(7, "oliverB", "pirataaa", 4, 6, 200, 50);
-		character[7] 	= new ActionFigur(8, "emreeee", "pirataaa", 4, 6, 200, 50);
-		character[8] 	= new ActionFigur(9, "sascha", "pirataaa", 4, 6, 200, 50);
-		character[9] 	= new ActionFigur(10, "stefee", "pirataaa", 4, 6, 200, 50);
-		character[10] 	= new ActionFigur(11, "stefee", "pirataaa", 4, 6, 200, 50);
-		character[11] 	= new ActionFigur(12, "Florian", "pirataaa", 4, 6, 200, 50);
-		character[12] 	= new ActionFigur(13, "Salman", "pirataaa", 4, 6, 200, 50);
-		character[13] 	= new ActionFigur(14, "Ashanti", "pirataaa", 4, 6, 200, 50); 
+        character[1]	= new ActionFigur(2, "sergio", "heilerin", 4, 2, 200, 50);
+        character[2] 	= new ActionFigur(3, "soeren", "gumbaaaa", 2, 1, 200, 50);
+		character[3] 	= new ActionFigur(4, "mikeee", "titanaaa", 9, 3, 200, 50); 
+		character[4] 	= new ActionFigur(5, "oliverA", "vikinger", 7, 2, 200, 50);
+		character[5] 	= new ActionFigur(6, "andree", "vikinger", 7, 1, 200, 50);
+		character[6] 	= new ActionFigur(7, "oliverB", "pirataaa", 4, 2, 200, 50);
+		character[7] 	= new ActionFigur(8, "emreeee", "pirataaa", 4, 3, 200, 50);
+		character[8] 	= new ActionFigur(9, "sascha", "pirataaa", 4, 2, 200, 50);
+		character[9] 	= new ActionFigur(10, "stefee", "pirataaa", 4, 2, 200, 50);
+		character[10] 	= new ActionFigur(11, "stefee", "pirataaa", 4, 2, 200, 50);
+		character[11] 	= new ActionFigur(12, "Florian", "pirataaa", 4, 1, 200, 50);
+		character[12] 	= new ActionFigur(13, "Salman", "pirataaa", 4, 3, 200, 50);
+		character[13] 	= new ActionFigur(14, "Ashanti", "pirataaa", 4, 2, 200, 50); 
 		character[14] 	= new ActionFigur(15, "jannnnA", "pirataaa", 4, 6, 200, 50);
 		character[15] 	= new ActionFigur(16, "jannnnB", "pirataaa", 4, 6, 200, 50);
 		character[16] 	= new ActionFigur(17, "christian", "pirataaa", 4, 6, 200, 50); 
@@ -304,19 +304,26 @@ public class Main
 					enemyLife = enemyLife - TOTALATTACKPLAYER - attackBonus + TOTALDEFENSEENEMY;
 				}
 				
-				if (chooseFight == 2)
+				if (playerMana >= playerMagic.getMagicCost())
 				{
-					round++;
-					enemyLife = enemyLife - MAGICATTACKPLAYER;
-					playerMana = playerMana - playerMagic.getMagicCost();
+					if (chooseFight == 2)
+					{
+						round++;
+						enemyLife = enemyLife - MAGICATTACKPLAYER;
+						playerMana = playerMana - playerMagic.getMagicCost();
+					}
+					
+					if (chooseFight == 3)
+					{
+						System.out.println("Items no available!");
+						kbhit();
+					}
 				}
-				
-				if (chooseFight == 3)
+				else
 				{
-					System.out.println("Items no available!");
+					System.out.println("no mana!");
 					kbhit();
 				}
-		
 	
 			
 			}
