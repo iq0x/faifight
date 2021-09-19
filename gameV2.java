@@ -134,21 +134,21 @@ public class Main
 		armor[0] = new Armor(1, "nothing", 3, 4);
 		armor[1] = new Armor(2, "leather harnish", 6, 4);
 		armor[2] = new Armor(3, "metal harnish", 6, 5);
-		armor[3] = new Armor(4, "titan harnish", 11, 6);
-		armor[4] = new Armor(5, "alu harnish", 11, 6);
-		armor[5] = new Armor(6, "orc harnish", 11, 6);
-		armor[6] = new Armor(7, "elf harnish", 11, 6);
-		armor[7] = new Armor(8, "plasma harnish", 11, 6);
-		armor[8] = new Armor(9, "wood harnish", 11, 6);
-		armor[9] = new Armor(10, "gold harnish", 11, 6);
-		armor[10] = new Armor(11, "silver harnish", 11, 6);
-		armor[11] = new Armor(12, "giga harnish", 11, 6);
-		armor[12] = new Armor(13, "ultra harnish", 11, 6);
+		armor[3] = new Armor(4, "titan harnish", 9, 6);
+		armor[4] = new Armor(5, "alu harnish", 8, 6);
+		armor[5] = new Armor(6, "orc harnish", 9, 6);
+		armor[6] = new Armor(7, "elf harnish", 8, 6);
+		armor[7] = new Armor(8, "plasma harnish", 5, 6);
+		armor[8] = new Armor(9, "wood harnish", 7, 6);
+		armor[9] = new Armor(10, "gold harnish", 8, 6);
+		armor[10] = new Armor(11, "silver harnish", 5, 6);
+		armor[11] = new Armor(12, "giga harnish", 8, 6);
+		armor[12] = new Armor(13, "ultra harnish", 4, 6);
 	}
 	
 	public static void loadWeapons(Weapon[] weapon)
 	{
-		weapon[0] = new Weapon(1, "axe", 3, 2);
+		weapon[0] = new Weapon(1, "axe", 5, 2);
 		weapon[1] = new Weapon(2, "sword", 6, 3);
 		weapon[2] = new Weapon(3, "plasmagun", 14, 7);
 		weapon[3] = new Weapon(4, "handgun", 8, 6);
@@ -156,7 +156,7 @@ public class Main
 		weapon[5] = new Weapon(6, "lasergun", 6, 3);
 		weapon[6] = new Weapon(7, "fusiongun", 14, 7);
 		weapon[7] = new Weapon(8, "genkidama", 8, 6);
-		weapon[8] = new Weapon(9, "blaster", 3, 2);
+		weapon[8] = new Weapon(9, "blaster", 4, 2);
 		weapon[9] = new Weapon(10, "laserblaster", 6, 3);
 		weapon[10] = new Weapon(11, "ultrablaster", 14, 7);
 		weapon[11] = new Weapon(12, "stinger", 8, 6);
@@ -169,22 +169,22 @@ public class Main
 	public static void loadCharacters(ActionFigur[] character)
 	{
 		character[0] 	= new ActionFigur(1, "helmut", "soldiera", 10, 3, 200, 50);
-        character[1]	= new ActionFigur(2, "sergio", "heilerin", 4, 2, 200, 50);
-        character[2] 	= new ActionFigur(3, "soeren", "gumbaaaa", 2, 1, 200, 50);
+        character[1]	= new ActionFigur(2, "sergio", "heilerin", 5, 2, 200, 50);
+        character[2] 	= new ActionFigur(3, "soeren", "gumbaaaa", 6, 1, 200, 50);
 		character[3] 	= new ActionFigur(4, "mikeee", "titanaaa", 9, 3, 200, 50); 
 		character[4] 	= new ActionFigur(5, "oliverA", "vikinger", 7, 2, 200, 50);
 		character[5] 	= new ActionFigur(6, "andree", "vikinger", 7, 1, 200, 50);
-		character[6] 	= new ActionFigur(7, "oliverB", "pirataaa", 4, 2, 200, 50);
-		character[7] 	= new ActionFigur(8, "emreeee", "pirataaa", 4, 3, 200, 50);
-		character[8] 	= new ActionFigur(9, "sascha", "pirataaa", 4, 2, 200, 50);
-		character[9] 	= new ActionFigur(10, "stefee", "pirataaa", 4, 2, 200, 50);
-		character[10] 	= new ActionFigur(11, "stefee", "pirataaa", 4, 2, 200, 50);
-		character[11] 	= new ActionFigur(12, "Florian", "pirataaa", 4, 1, 200, 50);
-		character[12] 	= new ActionFigur(13, "Salman", "pirataaa", 4, 3, 200, 50);
-		character[13] 	= new ActionFigur(14, "Ashanti", "pirataaa", 4, 2, 200, 50); 
-		character[14] 	= new ActionFigur(15, "jannnnA", "pirataaa", 4, 6, 200, 50);
-		character[15] 	= new ActionFigur(16, "jannnnB", "pirataaa", 4, 6, 200, 50);
-		character[16] 	= new ActionFigur(17, "christian", "pirataaa", 4, 6, 200, 50); 
+		character[6] 	= new ActionFigur(7, "oliverB", "pirataaa", 6, 2, 200, 50);
+		character[7] 	= new ActionFigur(8, "emreeee", "pirataaa", 5, 3, 200, 50);
+		character[8] 	= new ActionFigur(9, "sascha", "pirataaa", 6, 2, 200, 50);
+		character[9] 	= new ActionFigur(10, "stefee", "pirataaa", 5, 2, 200, 50);
+		character[10] 	= new ActionFigur(11, "stefee", "pirataaa", 5, 2, 200, 50);
+		character[11] 	= new ActionFigur(12, "Florian", "pirataaa", 6, 1, 200, 50);
+		character[12] 	= new ActionFigur(13, "Salman", "pirataaa", 6, 3, 200, 50);
+		character[13] 	= new ActionFigur(14, "Ashanti", "pirataaa", 6, 2, 200, 50); 
+		character[14] 	= new ActionFigur(15, "jannnnA", "pirataaa", 6, 2, 200, 50);
+		character[15] 	= new ActionFigur(16, "jannnnB", "pirataaa", 5, 1, 200, 50);
+		character[16] 	= new ActionFigur(17, "christian", "pirataaa", 6, 1, 200, 50); 
 	}
  
     public static ActionFigur fight(ActionFigur player, ActionFigur enemy, Weapon playerWeapon, Weapon enemyWeapon, Armor playerArmor, Armor enemyArmor, Level levelStage, Magic playerMagic)
@@ -304,13 +304,20 @@ public class Main
 					enemyLife = enemyLife - TOTALATTACKPLAYER - attackBonus + TOTALDEFENSEENEMY;
 				}
 				
-				if (playerMana >= playerMagic.getMagicCost())
-				{
+				
 					if (chooseFight == 2)
 					{
-						round++;
-						enemyLife = enemyLife - MAGICATTACKPLAYER;
-						playerMana = playerMana - playerMagic.getMagicCost();
+						if (playerMana >= playerMagic.getMagicCost())
+						{
+							round++;
+							enemyLife = enemyLife - MAGICATTACKPLAYER;
+							playerMana = playerMana - playerMagic.getMagicCost();
+						}
+						else
+						{
+							System.out.println("no mana!");
+							kbhit();
+						}
 					}
 					
 					if (chooseFight == 3)
@@ -318,12 +325,8 @@ public class Main
 						System.out.println("Items no available!");
 						kbhit();
 					}
-				}
-				else
-				{
-					System.out.println("no mana!");
-					kbhit();
-				}
+			
+			
 	
 			
 			}
