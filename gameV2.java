@@ -166,23 +166,23 @@ public class Main
 	
 	public static void loadCharacters(ActionFigur[] character)
 	{
-		character[0] 	= new ActionFigur(1, "helmut", "soldiera", 10, 3, 999, 50);
-        character[1]	= new ActionFigur(2, "sergio", "heilerin", 4, 5, 999, 50);
-        character[2] 	= new ActionFigur(3, "soeren", "gumbaaaa", 2, 4, 999, 50);
-		character[3] 	= new ActionFigur(4, "mikeee", "titanaaa", 9, 12, 999, 50); 
-		character[4] 	= new ActionFigur(5, "oliverA", "vikinger", 7, 9, 999, 50);
-		character[5] 	= new ActionFigur(6, "andree", "vikinger", 7, 4, 999, 50);
-		character[6] 	= new ActionFigur(7, "oliverB", "pirataaa", 4, 6, 999, 50);
-		character[7] 	= new ActionFigur(8, "emreeee", "pirataaa", 4, 6, 999, 50);
-		character[8] 	= new ActionFigur(9, "sascha", "pirataaa", 4, 6, 999, 50);
-		character[9] 	= new ActionFigur(10, "stefee", "pirataaa", 4, 6, 999, 50);
-		character[10] 	= new ActionFigur(11, "stefee", "pirataaa", 4, 6, 999, 50);
-		character[11] 	= new ActionFigur(12, "Florian", "pirataaa", 4, 6, 999, 50);
-		character[12] 	= new ActionFigur(13, "Salman", "pirataaa", 4, 6, 999, 50);
-		character[13] 	= new ActionFigur(14, "Ashanti", "pirataaa", 4, 6, 999, 50); 
-		character[14] 	= new ActionFigur(15, "jannnnA", "pirataaa", 4, 6, 999, 50);
-		character[15] 	= new ActionFigur(16, "jannnnB", "pirataaa", 4, 6, 999, 50);
-		character[16] 	= new ActionFigur(17, "christian", "pirataaa", 4, 6, 999, 50); 
+		character[0] 	= new ActionFigur(1, "helmut", "soldiera", 10, 3, 200, 50);
+        character[1]	= new ActionFigur(2, "sergio", "heilerin", 4, 5, 200, 50);
+        character[2] 	= new ActionFigur(3, "soeren", "gumbaaaa", 2, 4, 200, 50);
+		character[3] 	= new ActionFigur(4, "mikeee", "titanaaa", 9, 12, 200, 50); 
+		character[4] 	= new ActionFigur(5, "oliverA", "vikinger", 7, 9, 200, 50);
+		character[5] 	= new ActionFigur(6, "andree", "vikinger", 7, 4, 200, 50);
+		character[6] 	= new ActionFigur(7, "oliverB", "pirataaa", 4, 6, 200, 50);
+		character[7] 	= new ActionFigur(8, "emreeee", "pirataaa", 4, 6, 200, 50);
+		character[8] 	= new ActionFigur(9, "sascha", "pirataaa", 4, 6, 200, 50);
+		character[9] 	= new ActionFigur(10, "stefee", "pirataaa", 4, 6, 200, 50);
+		character[10] 	= new ActionFigur(11, "stefee", "pirataaa", 4, 6, 200, 50);
+		character[11] 	= new ActionFigur(12, "Florian", "pirataaa", 4, 6, 200, 50);
+		character[12] 	= new ActionFigur(13, "Salman", "pirataaa", 4, 6, 200, 50);
+		character[13] 	= new ActionFigur(14, "Ashanti", "pirataaa", 4, 6, 200, 50); 
+		character[14] 	= new ActionFigur(15, "jannnnA", "pirataaa", 4, 6, 200, 50);
+		character[15] 	= new ActionFigur(16, "jannnnB", "pirataaa", 4, 6, 200, 50);
+		character[16] 	= new ActionFigur(17, "christian", "pirataaa", 4, 6, 200, 50); 
 	}
  
     public static ActionFigur fight(ActionFigur player, ActionFigur enemy, Weapon playerWeapon, Weapon enemyWeapon, Armor playerArmor, Armor enemyArmor, Level levelStage, Magic playerMagic)
@@ -290,32 +290,31 @@ public class Main
 //--------------------- fight round player ---------------------------------
 				
 				
-				if (whoIS == 0)
-				{
-					
-					whoIS++;
+			if (whoIS == 0)
+			{		
+				whoIS++;
 				
 
-			int chooseFight = scanner.nextInt();
-			
-			if (chooseFight == 1)
-			{
-				round++;
-				enemyLife = enemyLife - TOTALATTACKPLAYER - attackBonus + TOTALDEFENSEENEMY;
-			}
-			
-			if (chooseFight == 2)
-			{
-				round++;
-				enemyLife = enemyLife - MAGICATTACKPLAYER;
-				playerMana = playerMana - playerMagic.getMagicCost();
-			}
-			
-			if (chooseFight == 3)
-			{
-				System.out.println("Items no available!");
-				kbhit();
-			}
+				int chooseFight = scanner.nextInt();
+				
+				if (chooseFight == 1)
+				{
+					round++;
+					enemyLife = enemyLife - TOTALATTACKPLAYER - attackBonus + TOTALDEFENSEENEMY;
+				}
+				
+				if (chooseFight == 2)
+				{
+					round++;
+					enemyLife = enemyLife - MAGICATTACKPLAYER;
+					playerMana = playerMana - playerMagic.getMagicCost();
+				}
+				
+				if (chooseFight == 3)
+				{
+					System.out.println("Items no available!");
+					kbhit();
+				}
 		
 	
 			
@@ -324,16 +323,23 @@ public class Main
 			
 //--------------------- fight round enemy ---------------------------------	
 			else if (whoIS == 1)
+			{	
+				whoIS--;
+				kbhit();
+				round++;
+				playerLife = playerLife - TOTALATTACKENEMY - attackBonus + TOTALDEFENSEPLAYER;
+			}
+			clrscr();
+			if (playerLife <= 0)
 			{
-				
-			whoIS--;
-			kbhit();
-			round++;
-			playerLife = playerLife - TOTALATTACKENEMY - attackBonus + TOTALDEFENSEPLAYER;
-			
-			
-				}
-				clrscr();
+				winner = enemy;
+				break;
+			}
+			if (enemyLife <= 0)
+			{
+				winner = player;
+				break;
+			}
 		}
 		
 		
