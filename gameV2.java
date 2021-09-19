@@ -282,7 +282,6 @@ public class Main
 			
 //--------------------------------------------------------------------------		
 			
-			System.out.println("════════════════════════════════════════════════");
 			System.out.println(ANSI_GREEN + "1. Attack:\t" + playerWeapon.getWeaponName() + ANSI_RESET);
 			System.out.println(ANSI_YELLOW +"2. Magic:\t" + playerMagic.getMagicName() + ANSI_RESET);
 			System.out.println(ANSI_BLUE +"3. Item:\t" + "no Item" + ANSI_RESET);
@@ -577,9 +576,9 @@ public class Main
 	{
 		System.out.println("\n\n\t\t\tWelcome to Fight Class\n\n");
 		System.out.println(ANSI_GREEN +"█████████████████████████████████████████████████████████████████████"+ ANSI_RESET);
-		System.out.println(ANSI_BLUE +"██"+ ANSI_RESET+"    ╔═══  ║ ╔═══╗ ║   ║ ══╦══    ╔═══  ║    ╔═══╗ ╔═══  ╔═══     "+ANSI_GREEN +"██"+ ANSI_RESET);
-		System.out.println(ANSI_BLUE +"██"+ ANSI_RESET+"    ╠═══  ║ ║  ═╗ ╠═══╣   ║      ║     ║    ╠═══╣ ╚══╗  ╚══╗     "+ANSI_GREEN +"██"+ ANSI_RESET);
-		System.out.println(ANSI_BLUE +"██"+ ANSI_RESET+"    ║     ║ ╚═══╝ ║   ║   ║      ╚════ ╚═══ ║   ║ ═══╝  ═══╝ v0.2"+ANSI_GREEN +"██"+ ANSI_RESET);
+		System.out.println(ANSI_BLUE +"██"+ ANSI_RESET+ANSI_RED+"    ╔═══  ║ ╔═══╗ ║   ║ ══╦══    ╔═══  ║    ╔═══╗ ╔═══  ╔═══     "+ANSI_RESET+ANSI_GREEN +"██"+ ANSI_RESET);
+		System.out.println(ANSI_BLUE +"██"+ ANSI_RESET+ANSI_RED+"    ╠═══  ║ ║  ═╗ ╠═══╣   ║      ║     ║    ╠═══╣ ╚══╗  ╚══╗     "+ANSI_RESET+ANSI_GREEN +"██"+ ANSI_RESET);
+		System.out.println(ANSI_BLUE +"██"+ ANSI_RESET+ANSI_RED+"    ║     ║ ╚═══╝ ║   ║   ║      ╚════ ╚═══ ║   ║ ═══╝  ═══╝ v0.2"+ANSI_RESET+ANSI_GREEN +"██"+ ANSI_RESET);
 		System.out.println(ANSI_BLUE +"█████████████████████████████████████████████████████████████████████"+ ANSI_RESET);
 	}
 	
