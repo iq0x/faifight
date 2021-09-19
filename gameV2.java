@@ -14,7 +14,6 @@ public class Main
     public static final String ANSI_CYAN = "\u001B[36m";
     public static final String ANSI_WHITE = "\u001B[37m";
 	
-	
 	public static Scanner scanner = new Scanner(System.in);
 	
 	public static ActionFigur myenemy;
@@ -28,6 +27,7 @@ public class Main
     {
 		clrscr();
 		titel();
+		
 		kbhit();
 		clrscr();
 		
@@ -146,23 +146,23 @@ public class Main
 	
 	public static void loadCharacters(ActionFigur[] character)
 	{
-		character[0] 	= new ActionFigur(1, "helmut", "soldiera", 10, 3, 0);
-        character[1]	= new ActionFigur(2, "sergio", "heilerin", 4, 5, 0);
-        character[2] 	= new ActionFigur(3, "soeren", "gumbaaaa", 2, 4, 0);
-		character[3] 	= new ActionFigur(4, "mikeee", "titanaaa", 9, 12, 0); 
-		character[4] 	= new ActionFigur(5, "oliverA", "vikinger", 7, 9, 0);
-		character[5] 	= new ActionFigur(6, "andree", "vikinger", 7, 4, 0);
-		character[6] 	= new ActionFigur(7, "oliverB", "pirataaa", 4, 6, 0);
-		character[7] 	= new ActionFigur(8, "emreeee", "pirataaa", 4, 6, 0);
-		character[8] 	= new ActionFigur(9, "sascha", "pirataaa", 4, 6, 0);
-		character[9] 	= new ActionFigur(10, "stefee", "pirataaa", 4, 6, 0);
-		character[10] 	= new ActionFigur(11, "stefee", "pirataaa", 4, 6, 0);
-		character[11] 	= new ActionFigur(12, "Florian", "pirataaa", 4, 6, 0);
-		character[12] 	= new ActionFigur(13, "Salman", "pirataaa", 4, 6, 0);
-		character[13] 	= new ActionFigur(14, "Ashanti", "pirataaa", 4, 6, 0); 
-		character[14] 	= new ActionFigur(15, "jannnnA", "pirataaa", 4, 6, 0);
-		character[15] 	= new ActionFigur(16, "jannnnB", "pirataaa", 4, 6, 0);
-		character[16] 	= new ActionFigur(17, "christian", "pirataaa", 4, 6, 0); 
+		character[0] 	= new ActionFigur(1, "helmut", "soldiera", 10, 3, 100);
+        character[1]	= new ActionFigur(2, "sergio", "heilerin", 4, 5, 100);
+        character[2] 	= new ActionFigur(3, "soeren", "gumbaaaa", 2, 4, 100);
+		character[3] 	= new ActionFigur(4, "mikeee", "titanaaa", 9, 12, 100); 
+		character[4] 	= new ActionFigur(5, "oliverA", "vikinger", 7, 9, 100);
+		character[5] 	= new ActionFigur(6, "andree", "vikinger", 7, 4, 100);
+		character[6] 	= new ActionFigur(7, "oliverB", "pirataaa", 4, 6, 100);
+		character[7] 	= new ActionFigur(8, "emreeee", "pirataaa", 4, 6, 100);
+		character[8] 	= new ActionFigur(9, "sascha", "pirataaa", 4, 6, 100);
+		character[9] 	= new ActionFigur(10, "stefee", "pirataaa", 4, 6, 100);
+		character[10] 	= new ActionFigur(11, "stefee", "pirataaa", 4, 6, 100);
+		character[11] 	= new ActionFigur(12, "Florian", "pirataaa", 4, 6, 100);
+		character[12] 	= new ActionFigur(13, "Salman", "pirataaa", 4, 6, 100);
+		character[13] 	= new ActionFigur(14, "Ashanti", "pirataaa", 4, 6, 100); 
+		character[14] 	= new ActionFigur(15, "jannnnA", "pirataaa", 4, 6, 100);
+		character[15] 	= new ActionFigur(16, "jannnnB", "pirataaa", 4, 6, 100);
+		character[16] 	= new ActionFigur(17, "christian", "pirataaa", 4, 6, 100); 
 	}
  
     public static ActionFigur fight(ActionFigur player, ActionFigur enemy, Weapon playerWeapon, Weapon enemyWeapon, Armor playerArmor, Armor enemyArmor, Level levelStage)
@@ -174,6 +174,8 @@ public class Main
 		int playerWINS = 0;
 		int enemyWINS = 0;
 		int animation = 0;
+		int playerLife = player.getCharacterLife();
+		int enemyLife = enemy.getCharacterLife();
 		
 		while (round < RoundEND)
 		{
@@ -234,9 +236,12 @@ public class Main
 			
 			
 			System.out.println("════════════════════════════════════════════════");
-			System.out.println("\t " + player.getCharacterName() + " vs " + enemy.getCharacterName());
+			System.out.println("\t " + player.getCharacterName()+"("+playerLife+")"+ " vs " + enemy.getCharacterName()+"("+enemyLife+")");
 			System.out.println("════════════════════════════════════════════════");
-			round++;
+			
+			
+			
+			
 	
 			
 			int attackBonus = rand.nextInt(5);
@@ -244,33 +249,63 @@ public class Main
 			int defenseBonus = rand.nextInt(3);
 			
 			int TOTALDEFENSE = defenseBonus  + enemyArmor.getArmorDefense() + enemy.getCharacterDefense();
-			int TOTALATTACK = attackBonus + playerWeapon.getWeaponAttack() + player.getCharacterDefense();
+			int TOTALATTACK = attackBonus + playerWeapon.getWeaponAttack() + player.getCharacterAttack();
 			
 
 			System.out.print("attack bonus vs defense bonus\t:");
-
 			System.out.println(attackBonus + "-" + defenseBonus);
-
-			
 			System.out.print("TOTAL attack vs TOTAL defense\t:");
-
 			System.out.println(TOTALATTACK + "-" + TOTALDEFENSE);
-
 			
-			winner = (TOTALATTACK > TOTALDEFENSE ) ? player : enemy;
-			
-			System.out.println("\tRound Winner: " + winner.getCharacterName());
-			
-			
-			if (winner == player)
-				playerWINS++;
-			else
-				enemyWINS++;
+//--------------------------------------------------------------------------		
 			
 			System.out.println("\tplayer: " + playerWINS + "\tenemy: " + enemyWINS);
-
+			System.out.println("════════════════════════════════════════════════");
+			System.out.println(ANSI_GREEN + "1. Attack:\t" + playerWeapon.getWeaponName() + ANSI_RESET);
+			System.out.println(ANSI_YELLOW +"2. Magic:\t" + "no Magic" + ANSI_RESET);
+			System.out.println(ANSI_BLUE +"3. Item:\t" + "no Item" + ANSI_RESET);
 			
-			kbhit();
+			int chooseFight = scanner.nextInt();
+			
+			if (chooseFight == 1)
+			{
+				winner = (TOTALATTACK > TOTALDEFENSE ) ? player : enemy;
+				round++;
+				if (winner == player)
+				{
+					playerWINS++;
+					enemyLife--;
+				}
+				else
+				{
+					enemyWINS++;
+					playerLife--;
+				}
+				//System.out.println("\tRound Winner: " + winner.getCharacterName());
+			}
+			
+			if (chooseFight == 2)
+			{
+				System.out.println("Magic no available!");
+				kbhit();
+			}
+			
+			if (chooseFight == 3)
+			{
+				System.out.println("Items no available!");
+				kbhit();
+			}
+		
+			else
+			{
+			}
+			
+			
+			
+			
+			
+		
+	
 			clrscr();
 		}
 		
@@ -280,6 +315,9 @@ public class Main
 			winner = enemy;
 		return winner;
 	}
+	
+	
+	
 	
 	
     public static Weather getWeather(Weather[] weather)
@@ -500,9 +538,9 @@ public class Main
 	{
 		System.out.println("\n\n\t\t\tWelcome to Fight Class\n\n");
 		System.out.println(ANSI_GREEN +"█████████████████████████████████████████████████████████████████████"+ ANSI_RESET);
-		System.out.println(ANSI_BLUE +"██"+ ANSI_RESET+"    ╔═══  ║ ╔═══╗ ║   ║ ══╦══     ╔═══  ║    ╔═══╗ ╔═══  ╔═══    "+ANSI_GREEN +"██"+ ANSI_RESET);
-		System.out.println(ANSI_BLUE +"██"+ ANSI_RESET+"    ╠═══  ║ ║  ═╗ ╠═══╣   ║       ║     ║    ╠═══╣ ╚══╗  ╚══╗    "+ANSI_GREEN +"██"+ ANSI_RESET);
-		System.out.println(ANSI_BLUE +"██"+ ANSI_RESET+"    ║     ║ ╚═══╝ ║   ║   ║       ╚════ ╚═══ ║   ║ ═══╝  ═══╝    "+ANSI_GREEN +"██"+ ANSI_RESET);
+		System.out.println(ANSI_BLUE +"██"+ ANSI_RESET+"    ╔═══  ║ ╔═══╗ ║   ║ ══╦══    ╔═══  ║    ╔═══╗ ╔═══  ╔═══     "+ANSI_GREEN +"██"+ ANSI_RESET);
+		System.out.println(ANSI_BLUE +"██"+ ANSI_RESET+"    ╠═══  ║ ║  ═╗ ╠═══╣   ║      ║     ║    ╠═══╣ ╚══╗  ╚══╗     "+ANSI_GREEN +"██"+ ANSI_RESET);
+		System.out.println(ANSI_BLUE +"██"+ ANSI_RESET+"    ║     ║ ╚═══╝ ║   ║   ║      ╚════ ╚═══ ║   ║ ═══╝  ═══╝ v0.2"+ANSI_GREEN +"██"+ ANSI_RESET);
 		System.out.println(ANSI_BLUE +"█████████████████████████████████████████████████████████████████████"+ ANSI_RESET);
 	}
 	
@@ -1060,18 +1098,18 @@ public class ActionFigur
     private String characterSpecies;
 	private int characterAttack;
 	private int characterDefense;
-	private int win;
+	private int characterLife;
 	
 
 	
-    public ActionFigur(int characterID, String characterName, String characterSpecies, int characterAttack, int characterDefense, int win)
+    public ActionFigur(int characterID, String characterName, String characterSpecies, int characterAttack, int characterDefense, int characterLife)
     {
 		this.characterID = characterID;
 		this.characterName = characterName;
         this.characterSpecies = characterSpecies;
         this.characterAttack = characterAttack;
         this.characterDefense = characterDefense;
-        this.win = win;
+        this.characterLife = characterLife;
     }
     
     public int getCharacterID()
@@ -1097,7 +1135,12 @@ public class ActionFigur
     public int getCharacterDefense()
     {
         return characterDefense;
-    }  
+    } 
+    
+     public int getCharacterLife()
+    {
+        return characterLife;
+    }   
 }
 
 
