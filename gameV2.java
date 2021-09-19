@@ -22,6 +22,7 @@ public class Main
 	public static Armor enemyArmor;
 	public static Level levelStage;
 	public static Weather levelWeather;
+	public static Magic playerMagic;
 	
 	public static void main(String[] args)
     {
@@ -59,6 +60,9 @@ public class Main
 		loadStage(stage);
 		Level levelStage = getStage(stage);
 		
+		Magic[] magic 	= new Magic[10];
+		loadMagic(magic);
+		Magic playerMagic = getMagic(magic);
 		
 		clrscr();
 		System.out.println("your character is: " + ANSI_GREEN +  player.getCharacterName() + ANSI_RESET);	
@@ -83,7 +87,7 @@ public class Main
 		clrscr();
 			
 		
-		if (fight(player, enemy, playerWeapon, enemyWeapon, playerArmor, enemyArmor, levelStage) != player) 
+		if (fight(player, enemy, playerWeapon, enemyWeapon, playerArmor, enemyArmor, levelStage, playerMagic) != player) 
 			GAMEOVER();
 		else
 			GAMEWIN();
@@ -92,6 +96,22 @@ public class Main
     
     
  //------------------------------------------------------------------------------------------------------------------------------------------
+	
+	
+	public static void loadMagic(Magic[] magic)
+	{
+		magic[0] = new Magic(1, "fireball", 10, 25);
+		magic[1] = new Magic(2, "fireball", 10, 25);
+		magic[2] = new Magic(3, "fireball", 10, 25);
+		magic[3] = new Magic(4, "fireball", 10, 25);
+		magic[4] = new Magic(5, "fireball", 10, 25);
+		magic[5] = new Magic(6, "fireball", 10, 25);
+		magic[6] = new Magic(7, "fireball", 10, 25);
+		magic[7] = new Magic(8, "fireball", 10, 25);
+		magic[8] = new Magic(9, "fireball", 10, 25);
+		magic[9] = new Magic(10, "fireball", 10, 25);
+	}
+	
 	
 	public static void loadWeather(Weather[] weather)
 	{
@@ -146,26 +166,26 @@ public class Main
 	
 	public static void loadCharacters(ActionFigur[] character)
 	{
-		character[0] 	= new ActionFigur(1, "helmut", "soldiera", 10, 3, 100);
-        character[1]	= new ActionFigur(2, "sergio", "heilerin", 4, 5, 100);
-        character[2] 	= new ActionFigur(3, "soeren", "gumbaaaa", 2, 4, 100);
-		character[3] 	= new ActionFigur(4, "mikeee", "titanaaa", 9, 12, 100); 
-		character[4] 	= new ActionFigur(5, "oliverA", "vikinger", 7, 9, 100);
-		character[5] 	= new ActionFigur(6, "andree", "vikinger", 7, 4, 100);
-		character[6] 	= new ActionFigur(7, "oliverB", "pirataaa", 4, 6, 100);
-		character[7] 	= new ActionFigur(8, "emreeee", "pirataaa", 4, 6, 100);
-		character[8] 	= new ActionFigur(9, "sascha", "pirataaa", 4, 6, 100);
-		character[9] 	= new ActionFigur(10, "stefee", "pirataaa", 4, 6, 100);
-		character[10] 	= new ActionFigur(11, "stefee", "pirataaa", 4, 6, 100);
-		character[11] 	= new ActionFigur(12, "Florian", "pirataaa", 4, 6, 100);
-		character[12] 	= new ActionFigur(13, "Salman", "pirataaa", 4, 6, 100);
-		character[13] 	= new ActionFigur(14, "Ashanti", "pirataaa", 4, 6, 100); 
-		character[14] 	= new ActionFigur(15, "jannnnA", "pirataaa", 4, 6, 100);
-		character[15] 	= new ActionFigur(16, "jannnnB", "pirataaa", 4, 6, 100);
-		character[16] 	= new ActionFigur(17, "christian", "pirataaa", 4, 6, 100); 
+		character[0] 	= new ActionFigur(1, "helmut", "soldiera", 10, 3, 999, 50);
+        character[1]	= new ActionFigur(2, "sergio", "heilerin", 4, 5, 999, 50);
+        character[2] 	= new ActionFigur(3, "soeren", "gumbaaaa", 2, 4, 999, 50);
+		character[3] 	= new ActionFigur(4, "mikeee", "titanaaa", 9, 12, 999, 50); 
+		character[4] 	= new ActionFigur(5, "oliverA", "vikinger", 7, 9, 999, 50);
+		character[5] 	= new ActionFigur(6, "andree", "vikinger", 7, 4, 999, 50);
+		character[6] 	= new ActionFigur(7, "oliverB", "pirataaa", 4, 6, 999, 50);
+		character[7] 	= new ActionFigur(8, "emreeee", "pirataaa", 4, 6, 999, 50);
+		character[8] 	= new ActionFigur(9, "sascha", "pirataaa", 4, 6, 999, 50);
+		character[9] 	= new ActionFigur(10, "stefee", "pirataaa", 4, 6, 999, 50);
+		character[10] 	= new ActionFigur(11, "stefee", "pirataaa", 4, 6, 999, 50);
+		character[11] 	= new ActionFigur(12, "Florian", "pirataaa", 4, 6, 999, 50);
+		character[12] 	= new ActionFigur(13, "Salman", "pirataaa", 4, 6, 999, 50);
+		character[13] 	= new ActionFigur(14, "Ashanti", "pirataaa", 4, 6, 999, 50); 
+		character[14] 	= new ActionFigur(15, "jannnnA", "pirataaa", 4, 6, 999, 50);
+		character[15] 	= new ActionFigur(16, "jannnnB", "pirataaa", 4, 6, 999, 50);
+		character[16] 	= new ActionFigur(17, "christian", "pirataaa", 4, 6, 999, 50); 
 	}
  
-    public static ActionFigur fight(ActionFigur player, ActionFigur enemy, Weapon playerWeapon, Weapon enemyWeapon, Armor playerArmor, Armor enemyArmor, Level levelStage)
+    public static ActionFigur fight(ActionFigur player, ActionFigur enemy, Weapon playerWeapon, Weapon enemyWeapon, Armor playerArmor, Armor enemyArmor, Level levelStage, Magic playerMagic)
     {
 		int round = 0;
 		ActionFigur winner = player;
@@ -177,7 +197,10 @@ public class Main
 		int playerLife = player.getCharacterLife();
 		int enemyLife = enemy.getCharacterLife();
 		
-		while (round < RoundEND)
+		int playerMana = player.getCharacterMana();
+		int enemyMana = enemy.getCharacterMana();
+		
+		while (playerLife > 0)
 		{
 			Weather[] weather = new Weather[3];
 			loadWeather(weather);
@@ -233,61 +256,52 @@ public class Main
 				}
 			}
 			
-			
-			
-			System.out.println("════════════════════════════════════════════════");
-			System.out.println("\t " + player.getCharacterName()+"("+playerLife+")"+ " vs " + enemy.getCharacterName()+"("+enemyLife+")");
-			System.out.println("════════════════════════════════════════════════");
-			
-			
-			
-			
 	
 			
+			System.out.println("════════════════════════════════════════════════");
+			System.out.println("\t " + player.getCharacterName()
+			+ANSI_YELLOW + "(" + playerLife + ")" + ANSI_RESET 
+			+ANSI_BLUE + "(" + playerMana + ")" + ANSI_RESET +    
+			
+			" vs " 
+			
+			+ enemy.getCharacterName()
+			+ANSI_YELLOW + "("+enemyLife+")"+ANSI_RESET+ ANSI_BLUE +"("+ enemyMana +")" +ANSI_RESET );
+			System.out.println("════════════════════════════════════════════════");
+				
+		
 			int attackBonus = rand.nextInt(5);
 			String superBonus = " ";
-			int defenseBonus = rand.nextInt(3);
+			//int defenseBonus = rand.nextInt(3);
 			
-			int TOTALDEFENSE = defenseBonus  + enemyArmor.getArmorDefense() + enemy.getCharacterDefense();
-			int TOTALATTACK = attackBonus + playerWeapon.getWeaponAttack() + player.getCharacterAttack();
-			
-
-			System.out.print("attack bonus vs defense bonus\t:");
-			System.out.println(attackBonus + "-" + defenseBonus);
-			System.out.print("TOTAL attack vs TOTAL defense\t:");
-			System.out.println(TOTALATTACK + "-" + TOTALDEFENSE);
+			int TOTALDEFENSEPLAYER = player.getCharacterDefense() + playerArmor.getArmorDefense();
+			int TOTALDEFENSEENEMY = enemyArmor.getArmorDefense() + enemy.getCharacterDefense();
+			int TOTALATTACKPLAYER = attackBonus + playerWeapon.getWeaponAttack() + player.getCharacterAttack();
+			int MAGICATTACKPLAYER = playerMagic.getMagicDamage();
+			int TOTALATTACKENEMY = enemyWeapon.getWeaponAttack() + enemy.getCharacterAttack();
 			
 //--------------------------------------------------------------------------		
 			
-			System.out.println("\tplayer: " + playerWINS + "\tenemy: " + enemyWINS);
 			System.out.println("════════════════════════════════════════════════");
 			System.out.println(ANSI_GREEN + "1. Attack:\t" + playerWeapon.getWeaponName() + ANSI_RESET);
-			System.out.println(ANSI_YELLOW +"2. Magic:\t" + "no Magic" + ANSI_RESET);
+			System.out.println(ANSI_YELLOW +"2. Magic:\t" + playerMagic.getMagicName() + ANSI_RESET);
 			System.out.println(ANSI_BLUE +"3. Item:\t" + "no Item" + ANSI_RESET);
 			
+//--------------------- fight round player ---------------------------------
+
 			int chooseFight = scanner.nextInt();
 			
 			if (chooseFight == 1)
 			{
-				winner = (TOTALATTACK > TOTALDEFENSE ) ? player : enemy;
 				round++;
-				if (winner == player)
-				{
-					playerWINS++;
-					enemyLife--;
-				}
-				else
-				{
-					enemyWINS++;
-					playerLife--;
-				}
-				//System.out.println("\tRound Winner: " + winner.getCharacterName());
+				enemyLife = enemyLife - TOTALATTACKPLAYER - attackBonus + TOTALDEFENSEENEMY;
 			}
 			
 			if (chooseFight == 2)
 			{
-				System.out.println("Magic no available!");
-				kbhit();
+				round++;
+				enemyLife = enemyLife - MAGICATTACKPLAYER;
+				playerMana = playerMana - playerMagic.getMagicCost();
 			}
 			
 			if (chooseFight == 3)
@@ -300,12 +314,10 @@ public class Main
 			{
 			}
 			
+//--------------------- fight round enemy ---------------------------------			
+			round++;
+			playerLife = playerLife - TOTALATTACKENEMY + attackBonus - TOTALDEFENSEPLAYER;
 			
-			
-			
-			
-		
-	
 			clrscr();
 		}
 		
@@ -331,7 +343,16 @@ public class Main
     
     
     
-    public static Level getStage(Level[] stage)
+    public static Magic getMagic(Magic[] magic)
+    {
+		playerMagic = magic[0];
+	
+		return playerMagic;
+    } 
+    
+    
+    
+     public static Level getStage(Level[] stage)
     {
 		levelStage = stage[0];
 	
@@ -1099,10 +1120,12 @@ public class ActionFigur
 	private int characterAttack;
 	private int characterDefense;
 	private int characterLife;
+	private int characterMana;
+
 	
 
 	
-    public ActionFigur(int characterID, String characterName, String characterSpecies, int characterAttack, int characterDefense, int characterLife)
+    public ActionFigur(int characterID, String characterName, String characterSpecies, int characterAttack, int characterDefense, int characterLife, int characterMana)
     {
 		this.characterID = characterID;
 		this.characterName = characterName;
@@ -1110,6 +1133,8 @@ public class ActionFigur
         this.characterAttack = characterAttack;
         this.characterDefense = characterDefense;
         this.characterLife = characterLife;
+        this.characterMana = characterMana;
+ 
     }
     
     public int getCharacterID()
@@ -1137,10 +1162,16 @@ public class ActionFigur
         return characterDefense;
     } 
     
-     public int getCharacterLife()
+    public int getCharacterLife()
     {
         return characterLife;
     }   
+    
+    public int getCharacterMana()
+    {
+        return characterMana;
+    }
+    
 }
 
 
@@ -1277,5 +1308,43 @@ class Weather
     public String getWeatherNegativ()
     {
         return weatherNegativ;
+    }
+}
+
+class Magic 
+{  
+	private int magicID;
+	private String magicName;
+    private int magicCost;
+    private int magicDamage;
+
+    public Magic(int magicID, String magicName, int magicCost, int magicDamage)
+    {
+		this.magicID = magicID;
+		this.magicName = magicName;
+		this.magicCost = magicCost;
+		this.magicDamage = magicDamage;
+    }
+    
+    
+    public int getMagicID()
+    {
+        return magicID;
+    }
+    
+    public String getMagicName()
+    {
+        return magicName;
+    }
+    
+    
+    public int getMagicCost()
+    {
+        return magicCost;
+    }
+    
+     public int getMagicDamage()
+    {
+        return magicDamage;
     }
 }
